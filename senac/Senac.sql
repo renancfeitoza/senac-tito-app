@@ -36,5 +36,15 @@ CREATE TABLE IF NOT EXISTS t_curso (
     PRIMARY KEY (id),
     CONSTRAINT fk_categoria FOREIGN KEY (id_categoria)
     REFERENCES t_categoria(id)
-
+)
+--aluno
+CREATE TABLE IF NOT EXISTS TABLE t_aluno (
+    id INT AUTO_INCREMENT NOT NULL,
+    nome VARCHAR(75) NOT NULL,
+    email VARCHAR(75) NOT NULL,
+    dt_nasc DATETIME NOT NULL,
+    id_curso INT NOT NULL,
+    PRIMARY KEY(id),
+    CONSTRAINT fk_curso FOREIGN KEY (id_curso)
+    REFERENCES t_curso(id)
 )
