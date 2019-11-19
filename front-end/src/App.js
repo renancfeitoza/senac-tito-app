@@ -8,7 +8,7 @@ export default class extends React.Component {
   render(){
     return(
       <Fragment>
-            {React.createElement('h1', {}, 'hello world')}
+            {React.createElement('h1', {}, 'Senac')}
       </Fragment>
     )
   }
