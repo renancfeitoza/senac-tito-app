@@ -6,8 +6,9 @@ const Example = ({ loading, text } = this.props) =>
     <div className="fixed">
       <div className="fixedReactLoading">
         <ReactLoading className="w-3 h-3"
-          type={'spinningBubbles'}
-          color={'black'}
+          type={'spin'}
+          color={'#0E6094'}
+          delay={1}
         />
         <span className="textLoading" role="text">
           {text === undefined ? 'Carregando ...' : text}
