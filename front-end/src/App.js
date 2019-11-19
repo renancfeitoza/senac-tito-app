@@ -24,7 +24,7 @@ export default class extends React.Component {
       })
       .finally(() => {
         this.setState({
-          loading: true
+          loading: false
         })
       })
     }
