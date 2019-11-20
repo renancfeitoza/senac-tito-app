@@ -10,20 +10,6 @@ const Curso = sequelize.define("curso", {
             notEmpty: true
         }
     },
-    dt_inicio: {
-        type: Sequelize.DATE,
-        allowNull: false,
-        validate: {
-            notEmpty: true
-        }
-    },
-    dt_termino: {
-        type: Sequelize.DATE,
-        allowNull: false,
-        validate: {
-            notEmpty: true
-        }
-    },
     total_vaga: {
         type: Sequelize.INTEGER,
         allowNull: false,
@@ -88,13 +74,6 @@ const Curso = sequelize.define("curso", {
         }
     },
     certificacao: {
-        type: Sequelize.TEXT,
-        allowNull: false,
-        validate: {
-            notEmpty: true
-        }
-    },
-    documentos_necessarios: {
         type: Sequelize.TEXT,
         allowNull: false,
         validate: {
