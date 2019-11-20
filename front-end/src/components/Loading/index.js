@@ -10,7 +10,7 @@ const Example = ({ loading, text } = this.props) =>
           color={'#0E6094'}
           delay={1}
         />
-        <span className="textLoading" role="text">
+        <span className="textLoading">
           {text === undefined ? 'Carregando ...' : text}
         </span>
       </div>
