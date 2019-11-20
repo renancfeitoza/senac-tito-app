@@ -5,7 +5,6 @@ const app = express();
 
 app.use(routes);
 
-
 app.listen(8000, () => {
     console.log('servidor rodando em http://localhost:8000')
 });
