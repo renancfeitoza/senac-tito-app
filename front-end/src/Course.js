@@ -9,10 +9,9 @@ export default class extends React.Component {
         errors: false,
         stateCurso = {
             nome: '',
-            dt_inicio: '',
-            dt_termino: '',
             total_vaga: '',
             total_bolsas: '',
+            dt_nasc: '',
             valor: '',
             carga_horaria:'',
             descricao:'',
@@ -21,7 +20,6 @@ export default class extends React.Component {
             mercado_trabalho:'',
             programa:'',
             certificacao:'',
-            documentos_necessarios:'',
             id_categoria:''
         }
     }
@@ -38,9 +36,7 @@ export default class extends React.Component {
         const {nome} = this.state
         if(
             !nome ||
-            nome.length > 20 ||
-            !dt_inicio ||
-            !dt_termino ||
+            nome.length > 75 ||
             !total_vaga ||
             !total_bolsas ||
             !valor ||
@@ -51,7 +47,6 @@ export default class extends React.Component {
             !mercado_trabalho ||
             !programa ||
             !certificacao ||
-            !documentos_necessarios ||
             !categoria
         )
             return 'fail'
