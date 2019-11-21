@@ -1,0 +1,8 @@
+{
+  "short_name": "Senac",
+  "name": "Senac",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#0E6094",
+  "background_color": "#ff7f00"
+}
