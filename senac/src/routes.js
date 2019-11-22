@@ -1,6 +1,6 @@
 const express = require('express');
-
 const routes = express.Router();
+const GeneroController = require('./controller/GeneroController');
 
 routes.get('/', (req, res) => {
     res.send(`
@@ -19,9 +19,11 @@ routes.get('/', (req, res) => {
     `);
 })
 
-
-
-
+routes.post('/api/genero', GeneroController.store)
+routes.get('/api/genero', GeneroController.index)
+routes.get('/api/genero/:id', GeneroController.show)
+routes.put('/api/genero/:id', GeneroController.update)
+routes.delete('/api/genero/:id', GeneroController.delete)
 
 
 
