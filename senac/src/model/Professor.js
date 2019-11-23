@@ -2,7 +2,7 @@ const Sequelize = require('sequelize');
 
 const sequelize = require('../config/database');
 
-const Professor = sequelize.define("profile", {
+const Professor = sequelize.define("professor", {
     nome: {
         type: Sequelize.STRING(75),
         allowNull: false,
