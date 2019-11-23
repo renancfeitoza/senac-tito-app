@@ -7,6 +7,7 @@ const ProfileController = require('./controller/ProfileController');
 const TurmaController = require('./controller/TurmaController');
 const AlunoController = require('./controller/AlunoController');
 const ProfessorController = require('./controller/ProfessorController');
+const LoginAlunoController = require('./controller/LoginAlunoController');
 
 routes.get('/', (req, res) => {
     res.send(`
@@ -61,11 +62,12 @@ routes.get('/api/aluno/:id', AlunoController.show)
 routes.put('/api/aluno/:id', AlunoController.update)
 routes.delete('/api/aluno/:id', AlunoController.delete)
 
-ProfessorController
 routes.post('/api/professor', ProfessorController.store)
 routes.get('/api/professor', ProfessorController.index)
 routes.get('/api/professor/:id', ProfessorController.show)
 routes.put('/api/professor/:id', ProfessorController.update)
 routes.delete('/api/professor/:id', ProfessorController.delete)
+
+routes.post('/api/loginAluno', LoginAlunoController.show)
 
 module.exports = routes;
