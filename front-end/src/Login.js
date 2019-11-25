@@ -8,7 +8,8 @@ export default class extends React.Component {
         errors: false,
         login: {
             email: ''
-        }
+        },
+       
     }
     handleChangeLogin = e =>{
         if(e.target.id === 'email') {
@@ -46,13 +47,13 @@ export default class extends React.Component {
         const data = Object.assign(login)
         Object.freeze(data)
         Object.preventExtensions(data)
-        api.post(`/rota`, data).then(res => {
+        api.post(`/rota`, data).then(_ => {
 
-        }).catch(err => {
+        }).catch(_ => {
             this.setState({
                 loading: false
             })
-        }).finally(err =>{
+        }).finally(_ =>{
             this.setState({
                 loading: false
             })
@@ -65,8 +66,9 @@ export default class extends React.Component {
                 <Form 
                     login={login} 
                     handleChangeLogin={this.handleChangeLogin}
-                    handleSubmit={this.handleSubmit.bind(this)}
+                    handleSubmit={this.handleSubmit}
                     errors={errors}
+                    validationRules={this.validateRules}
                 />
                 <Loading loading={loading} />
             </React.Fragment>

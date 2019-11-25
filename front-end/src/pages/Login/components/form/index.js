@@ -10,7 +10,7 @@ export const Form = ({
     login,
     handleChangeLogin,
     handleSubmit,
-    errors
+    errors,
 } = this.props) =>{
     return (
         <React.Fragment>
@@ -20,22 +20,22 @@ export const Form = ({
                 </div>
                 <div className="redes-sociais">
                     <a href="https://www.facebook.com/senaclapatito/">
-                        <img src={facebook} alt="ícone da cor preta do facebook"/>
+                        <img src={facebook} alt="ícone com cor de fundo preta do facebook"/>
                     </a>
                     <a href="https://www.instagram.com/senacsaopaulo/">
-                        <img src={instagram} alt="ícone da cor preta do instagram"/>
+                        <img src={instagram} alt="ícone com cor de fundo preta do instagram"/>
                     </a>
                     <a href="https://www.linkedin.com/company/senac"> 
-                         <img src={linkedin} alt="ícone da cor preta do linkedin"/>
+                         <img src={linkedin} alt="ícone com cor de fundo preta do linkedin"/>
                     </a>
                     <a href="https://twitter.com/senacsaopaulo">
-                        <img src={twitter} alt="ícone da cor preta do twitter"/>
+                        <img src={twitter} alt="ícone com cor de fundo preta do twitter"/>
                     </a>
 
                 </div>
             </nav>
                 <div className="logo">
-                  <img src={logo} alt="" className="logo" />
+                  <img src={logo} alt="Logotipo oficial do Senac Brasil" className="logo" />
                 </div>
                 <div className="formLogin">
                 <form>
@@ -45,9 +45,10 @@ export const Form = ({
                     <span>
                         <i className="material-icons">email</i>
                     </span>
+            
                     <input 
                         type="text" 
-                        placeholder="Seu E-mail" 
+                        placeholder="Digite seu email para logar no sistema" 
                         id="email" 
                         value={login.email}
                         aria-required="true"
