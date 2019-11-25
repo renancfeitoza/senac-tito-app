@@ -6,6 +6,7 @@ import instagram from '../../../../utils/IMG/instagram.svg'
 import linkedin from '../../../../utils/IMG/linkedin.svg'
 import twitter from '../../../../utils/IMG/twitter.svg'
 import { messageError } from '../../../../components/ValidationRules'
+import '../../../../utils/CSS/hamburgers.css'
 export const Form = ({
     login,
     handleChangeLogin,
@@ -14,44 +15,58 @@ export const Form = ({
 } = this.props) =>{
     return (
         <React.Fragment>
-            <nav>
-                <div className="menu">
-                    <i className="material-icons">menu</i>
+           <div className="navBar">
+                    <div className="redes-sociais">
+                        <a href="https://www.facebook.com/senaclapatito/">
+                            <img src={facebook} alt="ícone com cor de fundo preta do facebook"/>
+                        </a>
+                        <a href="https://www.instagram.com/senacsaopaulo/">
+                            <img src={instagram} alt="ícone com cor de fundo preta do instagram"/>
+                        </a>
+                        <a href="https://www.linkedin.com/company/senac"> 
+                            <img src={linkedin} alt="ícone com cor de fundo preta do linkedin"/>
+                        </a>
+                        <a href="https://twitter.com/senacsaopaulo">
+                            <img src={twitter} alt="ícone com cor de fundo preta do twitter"/>
+                        </a>
+                  </div>
                 </div>
-                <div className="redes-sociais">
-                    <a href="https://www.facebook.com/senaclapatito/">
-                        <img src={facebook} alt="ícone com cor de fundo preta do facebook"/>
+                <input type="checkbox" id="check" />
+                <label for="check"><i className="material-icons">menu</i></label>
+                <div className="bar">
+                <nav>
+                    <a href="#">
+                    <div className="link">Principal</div>
                     </a>
-                    <a href="https://www.instagram.com/senacsaopaulo/">
-                        <img src={instagram} alt="ícone com cor de fundo preta do instagram"/>
+                    <a href="#">
+                    <div className="link">Cursos</div>
                     </a>
-                    <a href="https://www.linkedin.com/company/senac"> 
-                         <img src={linkedin} alt="ícone com cor de fundo preta do linkedin"/>
+                    <a href="#">
+                    <div className="link">?</div>
                     </a>
-                    <a href="https://twitter.com/senacsaopaulo">
-                        <img src={twitter} alt="ícone com cor de fundo preta do twitter"/>
+                    <a href="#">
+                    <div className="link">Contato</div>
                     </a>
-
+                </nav>
                 </div>
-            </nav>
                 <div className="logo">
-                  <img src={logo} alt="Logotipo oficial do Senac Brasil" className="logo" />
+                <img src={logo} alt="Logotipo oficial do Senac Brasil" className="logo" />
                 </div>
                 <div className="formLogin">
-                <form>
+                <form action="#">
                     <label htmlFor="email">E-mail</label>
 
                     <div className="login">
                     <span>
                         <i className="material-icons">email</i>
                     </span>
-            
                     <input 
                         type="text" 
-                        placeholder="Digite seu email para logar no sistema" 
-                        id="email" 
-                        value={login.email}
-                        aria-required="true"
+                        placeholder="Seu E-mail" 
+                        id="email"
+                        aria-required="true" 
+                        aria-label="Digite aqui o email neste campo"
+                        placeholder="Digite seu email para fazer login"
                         onChange={handleChangeLogin}
                     />
                     </div>
@@ -64,9 +79,10 @@ export const Form = ({
                             undefined
                         )
                     }
-                    <button className="btn-entrar" onClick={handleSubmit}>Entrar</button>
+
+                    <button className="btn-entrar" onClick={handleSubmit} id="submit">Entrar</button>
                 </form>
-          </div>
+                </div>
                 <footer></footer>
         </React.Fragment>
     )

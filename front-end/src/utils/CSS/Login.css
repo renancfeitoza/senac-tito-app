@@ -7,14 +7,15 @@ html {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background: rgb(236, 236, 236);
+  background: rgb(230, 227, 227);
   width: 100%;
   height: 100%;
-  overflow: hidden; 
+  overflow: hidden;
 }
 .logo {
   display: flex;
   justify-content: center;
+  margin-top: 60px;
 }
 .logo img {
   width: 178px;
@@ -23,19 +24,70 @@ header {
   width: 100%;
   text-align: center;
 }
+.bar nav a {
+  text-decoration: none;
+}
+.link {
+  text-align: center;
+  padding: 20px;
+  font-size: 15px;
+  transition: all 0.2s linear;
+  color: black;
+  text-decoration: none;
+}
+.link:hover {
+  background: rgb(238, 232, 232);
+}
+
 nav {
-  background: #ffffff;
-  width: 90%;
-  border-radius: 10px;
-  height: 40px;
-  margin: 30px auto;
-  align-content: center;
+  width: 100%;
+  position: absolute;
+  top: 60px;
+}
+
+.bar {
+  background: #1c5594;
+  width: 350px;
+  left: -350px;
+  height: 100%;
+  position: absolute;
+  transition: all 0.2s linear;
+}
+.bar nav {
+  color: black;
+}
+#check {
+  display: none;
+}
+label i {
+  cursor: pointer;
+  padding: 12px;
+  position: absolute;
+  z-index: 1;
+}
+
+.link {
+  background: white;
+  padding: 18px;
+  transition: all 0.2s linear;
+  margin: 8px;
+}
+
+#check:checked ~ .bar {
+  transform: translateX(350px);
+}
+
+.navBar {
+  background: #fff;
+  width: 100%;
+  height: 34px;
   box-shadow: 0 3px 0 0 #e98118;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  justify-content: flex-end;
   padding: 0.5em;
-  left: 4.5%;
+  position: absolute;
 }
 div.redes-sociais img {
   width: 20px;
@@ -49,7 +101,7 @@ div.redes-sociais img {
   border: none;
   border-radius: 10px;
   background: #f7941e;
-  color: white;
+  color: #fff;
   font-size: 1.3rem;
   margin-top: 1rem;
   outline: none;
@@ -101,14 +153,15 @@ div.redes-sociais img {
   border: solid 1px #c1c1c1;
 }
 
+/* Responsive Queries */
 @media screen and (max-width: 768px) {
-  nav {
+  .navBar {
     width: 100%;
     height: 4%;
     border-radius: 0;
     margin-top: 0;
   }
-  nav img {
+  .navBar img {
     width: 30px;
   }
 }
