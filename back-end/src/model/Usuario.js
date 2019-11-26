@@ -24,7 +24,7 @@ const Usuario = sequelize.define("usuario", {
             notEmpty: true
         },
         references: {
-            model: "profile",
+            model: "profiles",
             key: "id"
         }
     },
@@ -37,6 +37,6 @@ const Usuario = sequelize.define("usuario", {
     }
 })
 
-// Aluno.sync({ force: true });
+//Usuario.sync({ force: true });
 
 module.exports = Usuario;
