@@ -41,38 +41,38 @@
 //   }
 // }
 
-import React, {Fragment, useState, useEffect} from 'react'
-import api from './services/axios'
-import Loading from './components/Loading'
-export default function Course(){
-    const [loading,setLoading] = useState(false)
-    const [data,setData] = useState([])
+// import React, {Fragment, useState, useEffect} from 'react'
+// import api from './services/axios'
+// import Loading from './components/Loading'
+// export default function Course(){
+//     const [loading,setLoading] = useState(false)
+//     const [data,setData] = useState([])
 
-    useEffect(() =>{
-      getCourse()
-    },[])
+//     useEffect(() =>{
+//       getCourse()
+//     },[])
 
-    function getCourse(){
-      setLoading(true)
-      api.get(`/course`).then(res =>{
-        setData(res.data)
-        setLoading(false)
+//     function getCourse(){
+//       setLoading(true)
+//       api.get(`/course`).then(res =>{
+//         setData(res.data)
+//         setLoading(false)
 
-        console.dir('res', res)
-      }).catch(err =>{
-          if(err.response.data.status_code === 429){
-            // notificacao aqui 
-            console.log('Você está fazendo multiplas requisições. Aguarde 1min e tente novamente')
-          }
-          setLoading(false)
-          // throw new Error('Erro ao dar get')
-          return
-      })
-    }
-    return (
-      <Fragment>
-          {React.createElement('p',{},'Curso')}
-          <Loading loading={loading} />
-      </Fragment>
-    )
-}
+//         console.dir('res', res)
+//       }).catch(err =>{
+//           if(err.response.data.status_code === 429){
+//             // notificacao aqui 
+//             console.log('Você está fazendo multiplas requisições. Aguarde 1min e tente novamente')
+//           }
+//           setLoading(false)
+//           // throw new Error('Erro ao dar get')
+//           return
+//       })
+//     }
+//     return (
+//       <Fragment>
+//           {React.createElement('p',{},'Curso')}
+//           <Loading loading={loading} />
+//       </Fragment>
+//     )
+// }

@@ -5,10 +5,10 @@ import Loading from './components/Loading'
 export default class extends React.Component {
     state= {
         loading: false,
-        errors: false,
         login: {
-            email: ''
+            email: '',
         },
+        errors: false,
        
     }
     handleChangeLogin = e =>{
@@ -30,6 +30,15 @@ export default class extends React.Component {
     }
     handleSubmit = e => {
         e.preventDefault()
+        const alunosTeste = new Map()
+        alunosTeste.set('Logado', {nome: 'Felipe'}).set('Deslogado',{nome: 'Maria'})
+
+
+        alunosTeste.forEach((el,index) => {
+            return console.log(
+                `Índice = ${Object.keys(index)}), pessoa = ${Object.values(el)}`
+            )
+        })
 
         const {login} = this.state
         const validate = this.validateRules()
@@ -38,7 +47,7 @@ export default class extends React.Component {
         loading: true
     })
         if(validate !== 'success') {
-            console.log('valida')
+            // console.log('a')
             this.setState({
                 loading: false,
                 errors: true
@@ -46,7 +55,9 @@ export default class extends React.Component {
         }
         const data = Object.assign(login)
         Object.freeze(data)
-        Object.preventExtensions(data)
+        console.warn(Object.isExtensible(data))
+        console.log(data)
+        
         api.post(`/rota`, data).then(_ => {
 
         }).catch(_ => {
