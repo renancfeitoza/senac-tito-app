@@ -1,38 +1,40 @@
-const Sequelize = require('sequelize');
+const Sequelize = require("sequelize");
+const sequelize = require("../config/database");
 
-const sequelize = require('../config/database');
-
-const Aluno = sequelize.define("profile", {
+const Admin = sequelize.define("admin", {
     nome: {
-        type: Sequelize.STRING(75),
+        type: Sequelize.STRING(100),
         allowNull: false,
         validate: {
             notEmpty: true
         }
     },
     email: {
-        type: Sequelize.STRING(75),
+        type: Sequelize.STRING(100),
         allowNull: false,
         validate: {
             notEmpty: true
         }
     },
-    dt_nasc: {
-        type: Sequelize.DATE,
+    senha: {
+        type: Sequelize.STRING(100),
         allowNull: false,
         validate: {
             notEmpty: true
         }
     },
-    turma: {
-        type: Sequelize.INTEGER,
+    area: {
+        type: Sequelize.STRING(100),
         allowNull: false,
         validate: {
             notEmpty: true
-        },
-        references: {
-            model: "turmas",
-            key: "id"
+        }
+    },
+    telefone: {
+        type: Sequelize.CHAR(11),
+        allowNull: false,
+        validate: {
+            notEmpty: true
         }
     },
     profile: {
@@ -45,9 +47,11 @@ const Aluno = sequelize.define("profile", {
             model: "profiles",
             key: "id"
         }
+
     }
-})
+});
 
-// Aluno.sync({ force: true });
+// Admin.sync({ force: true });
 
-module.exports = Aluno;
+module.exports = Admin;
+

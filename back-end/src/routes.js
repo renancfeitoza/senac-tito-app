@@ -1,5 +1,4 @@
 const express = require("express");
-const User = require("./controller/UserController");
 
 const routes = express.Router();
 
@@ -21,7 +20,6 @@ routes.get('/api', (req, res) => {
 
     `)
 });
-routes.get('/', User.show);
 
 
 
