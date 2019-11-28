@@ -8,7 +8,7 @@ export default class extends React.Component {
         loading: false,
         errors: false,
         stateCurso = {
-            nome: '',
+            nome_complete: '',
             total_vaga: '',
             total_bolsas: '',
             dt_nasc: '',
@@ -33,10 +33,10 @@ export default class extends React.Component {
         })
     }
     validationRulesCourse = _ => {
-        const {nome} = this.state
+        const {nome_complete} = this.state
         if(
-            !nome ||
-            nome.length > 75 ||
+            !nome_complete ||
+            nome_complete.length > 75 ||
             !total_vaga ||
             !total_bolsas ||
             !valor ||
@@ -58,6 +58,7 @@ export default class extends React.Component {
         this.setState({
             loading: true
         })
+        
         if(validation !== 'success'){
             // notificacao
             this.setState({
