@@ -17,7 +17,7 @@ export default class extends React.Component {
             frase: ''
         }
     }
-    componentDidMount = _ => this.getInfo()
+    // componentDidMount = _ => this.getInfo()
     getInfo = async (...info) => {
         this.setState({
             loading : false
