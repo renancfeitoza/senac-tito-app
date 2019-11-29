@@ -7,6 +7,7 @@ export default class extends React.Component {
     state = {
         loading: false,
         errors: false,
+        infoArray: [],
         info: {
             name: '',
             escolaridade: '',
@@ -16,14 +17,45 @@ export default class extends React.Component {
             frase: ''
         }
     }
-    handleChangeInfo = e =>{
+    componentDidMount = _ => this.getInfo()
+    getInfo = async (...info) => {
+        this.setState({
+            loading : false
+        })
+        const { infoArray: i} = this.state
+        try {
+            const res = await api.get(`/rota`)
             this.setState({
-                info: {
-                    ...this.state.info,
-                    [e.target.id]: e.target.value
-                }
+                infoArray : {
+                    ...i,
+                    ...res.data.data,
+                    info
+                },
+                loading: false
             })
-        
+            console.log(JSON.stringify(...res).includes('Aluno') === true? 'Há': 'Não há')
+        }catch(e){
+            this.setState({
+                loading:false
+            })
+            if(e.response.data.status_code === 429) {
+                // notification
+
+                this.setState({
+                    loading: false
+                })
+            }
+            throw new Error('Erro ao buscar informações')
+        }
+    }
+    handleChangeInfo = e =>{
+        this.setState({
+            info: {
+                ...this.state.info,
+                [e.target.id]: e.target.value
+            }
+        })
+    
     }
     validateRules = _ => {
         const { info } = this.state
