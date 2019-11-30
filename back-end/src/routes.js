@@ -3,6 +3,9 @@ const ProfileController = require('./controller/ProfileController');
 const StatusProfile = require('./controller/StatusController');
 const AdminController = require('./controller/AdminController');
 const ProfessorController = require('./controller/ProfessorController');
+const CursoController =  require('./controller/CursoController');
+const AlunoController = require('./controller/AlunoController');
+const Curso_AlunoController = require('./controller/Curso_AlunoController');
 const routes = express.Router();
 
 routes.get('/api', (req, res) => {
@@ -52,8 +55,27 @@ routes.get('/api/professor/:id', ProfessorController.show);
 routes.put('/api/professor/:id', ProfessorController.update);
 routes.delete('/api/professor/:id', ProfessorController.delete);
 
+// ROTAS DE CURSO
+routes.post('/api/curso', CursoController.store);
+routes.get('/api/curso', CursoController.index);
+routes.get('/api/curso/:id', CursoController.show);
+routes.put('/api/curso/:id', CursoController.update);
+routes.delete('/api/curso/:id', CursoController.delete);
+
+// ROTA DE ALUNO 
+routes.post('/api/aluno', AlunoController.store);
+routes.get('/api/aluno', AlunoController.index);
+routes.get('/api/aluno/:id', AlunoController.show);
+routes.put('/api/aluno/:id', AlunoController.update);
+routes.delete('/api/aluno/:id', AlunoController.delete);
 
 
+// ROTA DE CURSO_ALUNO
+routes.post('/api/curso_aluno', Curso_AlunoController.store);
+routes.get('/api/curso_aluno', Curso_AlunoController.index);
+routes.get('/api/curso_aluno/:id', Curso_AlunoController.show);
+routes.put('/api/curso_aluno/:id', Curso_AlunoController.update);
+routes.delete('/api/curso_aluno/:id', Curso_AlunoController.delete);
 
 
 
