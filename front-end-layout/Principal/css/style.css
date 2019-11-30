@@ -105,8 +105,9 @@ nav {
   margin: 0 auto;
   width: 120px;
   height: 120px;
-  border-radius: 6em;
-  background: white;
+  box-shadow: 0 3px 0 0 #f7941e;
+  background: #eee8e8;
+  margin-bottom: 5px;
 }
 
 .profileI input {
@@ -172,12 +173,6 @@ nav {
   }
   #check:checked ~ .menu {
     transform: translateX(400px);
-  }
-  .login span {
-    margin-left: 8px;
-  }
-  .formLogin form input {
-    width: 200px;
   }
   .conteudo {
     flex-direction: column;
