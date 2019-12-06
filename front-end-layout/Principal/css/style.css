@@ -4,7 +4,7 @@
   overflow: hidden;
 }
 body {
-  background: rgb(230, 227, 227) !important ;
+  background: rgb(231, 231, 231) !important ;
 }
 html {
   margin: 0;
@@ -19,7 +19,56 @@ html {
 .logo img {
   width: 170px;
 }
-
+.options {
+  align-items: center;
+  display: flex;
+  width: 100%;
+  height: 300px;
+  margin-top: -40px;
+}
+.optionsProfile {
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+  height: 200px;
+}
+.optionsProfile a {
+  text-decoration: none;
+  color: white;
+  margin: 10px;
+}
+.optionsProfile img {
+  width: 30px;
+  margin-right: 10px;
+}
+.profileUI {
+  margin: 10px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  width: 100%;
+  height: 60px;
+  border: solid 0.015em #426286;
+}
+.logout {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: 60px;
+  bottom: 0px;
+}
+.logout img {
+  width: 30px;
+  margin-right: 10px;
+}
+.logout a {
+  color: white;
+  text-decoration: none;
+}
 /* BARRA DE MENU */
 .menu {
   background: #1c5594;
@@ -28,8 +77,9 @@ html {
   left: -350px;
   height: 100%;
   position: absolute;
-  transition: all 0.2s linear;
-  z-index: 1;
+  transition: all 0.3s ease-in-out;
+  z-index: 999;
+  border-bottom: solid 2px #f58a1f;
 }
 .menu nav a {
   text-decoration: none;
@@ -41,29 +91,35 @@ html {
   display: none;
 }
 label i {
+  transition: all 0.2s linear;
+  margin-left: 8px;
+  border-radius: 2em;
+  background: #f58a1f;
+  color: rgb(255, 255, 255);
   cursor: pointer;
   padding: 12px;
   position: absolute;
-  z-index: 2;
-}
-.link {
-  background: white;
-  padding: 18px;
-  transition: all 0.2s linear;
-  margin: 8px;
+  z-index: 1000;
 }
 
 #check:checked ~ .menu {
   transform: translateX(350px);
+}
+#check:checked ~ label i {
+  transition: all 0.9s linear;
+  background: none;
 }
 
 .link {
   text-align: center;
   padding: 20px;
   font-size: 15px;
-  transition: all 0.2s linear;
+  transition: all 0.2s ease-in-out;
   color: black;
   text-decoration: none;
+  background: white;
+  padding: 18px;
+  margin: 8px;
 }
 .link:hover {
   background: rgb(238, 232, 232);
@@ -74,25 +130,11 @@ nav {
   top: 60px;
   overflow: hidden;
 }
+/* Mostrar cursos */
 /* Barra de navegação */
 
 /* CORPO */
-.conteudo {
-  margin-top: 40px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
 
-.conteudo .card {
-  width: 18rem;
-  margin: 20px;
-  align-items: center;
-}
-.conteudo .card img {
-  width: 99%;
-  margin: 2px;
-}
 .profileI {
   display: flex;
   width: 100%;
@@ -103,27 +145,26 @@ nav {
 }
 .profileI section {
   margin: 0 auto;
+  border-radius: 4em;
   width: 120px;
   height: 120px;
-  box-shadow: 0 3px 0 0 #f7941e;
   background: #eee8e8;
   margin-bottom: 5px;
 }
 
-.profileI input {
-  width: 50%;
-  justify-content: center;
-  background: rgb(238, 232, 232);
-  outline: none;
-  border: none;
-  border-radius: 3em;
-  text-align: center;
-  height: 30px;
-}
-
 /* Search bar */
 /* Responsive Queries */
-
+.conteudo {
+  display: flex;
+  margin: 0 auto;
+  width: 100%;
+  justify-content: center;
+}
+.card {
+  margin: 38px auto;
+  width: 50%;
+  height: 400px;
+}
 @media screen and (max-width: 768px) {
   .navBar {
     width: 100%;
@@ -137,26 +178,14 @@ nav {
   * {
     overflow: visible;
   }
-  .conteudo {
-    flex-wrap: wrap;
-  }
-  .conteudo .card {
-    width: 14rem;
-    margin: 15px auto;
-    flex-wrap: wrap;
-  }
 }
 
 @media screen and (max-width: 425px) {
   * {
     overflow: visible;
   }
-  .conteudo {
-    flex-direction: column;
-  }
-  .conteudo .card {
-    width: 20rem;
-    margin: 15px auto;
+  .card {
+    width: 75%;
   }
   .menu {
     width: 100%;
@@ -171,16 +200,13 @@ nav {
     width: 100%;
     left: -400px;
   }
+  .card {
+    width: 75%;
+  }
   #check:checked ~ .menu {
     transform: translateX(400px);
   }
-  .conteudo {
-    flex-direction: column;
-  }
-  .conteudo .card {
-    width: 17rem;
-    margin: 15px auto;
-  }
+
   * {
     overflow: visible;
   }
