@@ -18,7 +18,7 @@ export default class extends React.Component {
             frase_definitiva: '',
         }
     }
-    componentDidMount = _ => this.getProfiles()
+    // async componentDidMount() {await this.getProfiles()}
     getProfiles = async () => {
         this.setState({
             loading: true
