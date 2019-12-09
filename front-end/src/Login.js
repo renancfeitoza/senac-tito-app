@@ -11,6 +11,31 @@ export default class extends React.Component {
         errors: false,
        
     }
+    // async componentDidMount() {await this.getLogin()}
+
+    // UNSAFE_componentWillMount = () => console.log(`...`)()
+    
+
+    // getLogin = async () => {
+    //     this.setState({loading: true})
+    //     try{
+    //         const res = await api.get(`/login`)
+    //         this.setState({
+    //             login: res.data.data === null ? '' : res.data.data,
+    //             loading: false
+    //         })
+    //         this.UNSAFE_componentWillMount()
+    //     }catch(err) {
+    //         this.setState({loading: false})
+    //         if(err.response.data.errors === 429) {
+    //             // notification
+    //             this.setState({
+    //                 loading: false
+    //             })
+    //         }
+    //         throw new Error('Erro ao buscar logins')
+    //     }
+    // }
     handleChangeLogin = e =>{
         if(e.target.id === 'email') {
             this.setState({

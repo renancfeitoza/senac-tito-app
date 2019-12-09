@@ -96,6 +96,7 @@ export default class extends React.Component {
                     `Índice = ${Object.keys(index)}), pessoa = ${Object.values(el)}`
                 )
             })
+            console.log(profileTeste.has('Felipe'))
          
             const data = Object.assign(stateProfile)
             Object.freeze(data)
