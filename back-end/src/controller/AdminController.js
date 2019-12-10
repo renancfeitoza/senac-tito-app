@@ -3,6 +3,7 @@ const Admin = require('../model/Admin');
 module.exports = {
     async store(req, res) {
         const { nome, email, senha, area, telefone, profile } = req.body;
+        try{
 
         const exibeRes = await Admin.create({
             nome,
@@ -14,6 +15,10 @@ module.exports = {
         })
 
         res.status(200).json(exibeRes);
+        }
+        catch(err){
+            res.status(400).send('Dados Invalidos');
+        }
     },
     async index(req, res) {
         const findAll = await Admin.findAll();
@@ -21,7 +26,7 @@ module.exports = {
         res.status(200).json(findAll);
     },
     async show(req, res) {
-        const { id } = req.body;
+        const { id } = req.params;
 
         const exibeRes = await Admin.findOne({
             where: {
@@ -39,7 +44,13 @@ module.exports = {
             where: { id }
         })
 
-        res.status(200).json(exibeRes);
+        if(!exibeRes ===0){
+            res.status(200).json(exibeRes);
+        }else{
+            res.status(400).send("Dados não atualizados");
+        }
+
+       
     },
     async delete(req, res) {
         const { id } = req.params;
@@ -48,6 +59,11 @@ module.exports = {
             where: { id }
         })
 
-        res.status(200).json(exibeRes);
+        if(!exibeRes === 0){
+            res.status(200).json(exibeRes);
+        }else{
+            res.status(400).send("Usuário não existe");
+        }
+
     }
 }

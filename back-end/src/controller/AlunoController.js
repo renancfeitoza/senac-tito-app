@@ -4,13 +4,17 @@ module.exports = {
     async store(req, res) {
         const { nome, email, senha } = req.body;
 
-        const exibeRes = await Aluno.create({
-            nome,
-            email,
-            senha
-        })
+        try{
+            const exibeRes = await Aluno.create({
+                nome,
+                email,
+                senha
+            })
+            res.status(201).json(exibeRes);
+        }catch(err){
+            res.status(400).send("Dados invalidos");
+        }
 
-        res.status(200).json(exibeRes);
     },
     async index(req, res) {
         const exibeRes = await Aluno.findAll();
@@ -38,7 +42,11 @@ module.exports = {
             }
         })
 
-        res.status(200).json(exibeRes);
+        if(!exibeRes ===0){
+            res.status(200).json(exibeRes);
+        }else{
+            res.status(400).send("Dados não atualizados");
+        }
     },
     async delete(req, res) {
         const { id } = req.params;
@@ -48,7 +56,10 @@ module.exports = {
                 id
             }
         })
-
-        res.status(200).json(exibeRes);
+        if(!exibeRes === 0){
+            res.status(200).json(exibeRes);
+        }else{
+            res.status(400).send("Usuário não existe");
+        }
     }
 }

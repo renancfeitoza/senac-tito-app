@@ -3,17 +3,21 @@ const Professor = require('../model/Professor');
 module.exports = {
     async store(req, res) {
         const { nome, email, senha, area, profile, admin } = req.body;
-
-        const exibeRes = await Professor.create({
-            nome,
-            email,
-            senha,
-            area,
-            profile,
-            admin
-        })
-
-        res.status(200).json(exibeRes);
+        try{
+            const exibeRes = await Professor.create({
+                nome,
+                email,
+                senha,
+                area,
+                profile,
+                admin
+            })
+    
+            res.status(200).json(exibeRes);
+        }
+        catch(err){
+            res.status(400).send("Dados Invalidos");
+        }
     },
     async index(req, res) {
         const exibeRes = await Professor.findAll();
@@ -41,7 +45,11 @@ module.exports = {
             }
         })
 
-        res.status(200).json(exibeRes);
+        if(!exibeRes === 0){
+            res.status(200).json(exibeRes);
+        }else{
+            res.status(400).send("Usuário não existe");
+        }
     },
     async delete(req, res) {
         const { id } = req.params;
@@ -52,6 +60,10 @@ module.exports = {
             }
         })
 
-        res.status(200).json(exibeRes);
+        if(!exibeRes === 0){
+            res.status(200).json(exibeRes);
+        }else{
+            res.status(400).send("Usuário não existe");
+        }
     }
 }

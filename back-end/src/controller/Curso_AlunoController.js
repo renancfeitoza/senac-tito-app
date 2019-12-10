@@ -6,14 +6,17 @@ module.exports = {
 
         const uniqueKey = `${curso}${aluno}`;
         console.log(uniqueKey)
-
-        const exibeRes = await Curso_aluno.create({
-            curso,
-            aluno,
-            unique: uniqueKey
-        })
-
-        res.status(200).json(exibeRes);
+        try{
+            const exibeRes = await Curso_aluno.create({
+                curso,
+                aluno,
+                unique: uniqueKey
+            })
+            res.status(201).json(exibeRes);
+        }
+        catch(err){
+            res.status(400).send("Dados invalidos");
+        }
     },
     async index(req, res) {
         const exibeRes = await Curso_aluno.findAll();
@@ -34,14 +37,18 @@ module.exports = {
     async update(req, res) {
         const { id } = req.params;
         const dados = req.body;
-
+        
         const exibeRes = await Curso_aluno.update(dados, {
             where: {
                 id
             }
         })
 
-        res.status(200).json(exibeRes);
+        if(!exibeRes ===0){
+            res.status(200).json(exibeRes);
+        }else{
+            res.status(400).send("Dados não atualizados");
+        }
     },
     async delete(req, res) {
         const { id } = req.params;
@@ -52,6 +59,10 @@ module.exports = {
             }
         })
 
-        res.status(200).json(exibeRes);
+        if(!exibeRes === 0){
+            res.status(200).json(exibeRes);
+        }else{
+            res.status(400).send("Usuário não existe");
+        }
     }
 }

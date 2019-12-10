@@ -3,11 +3,15 @@ const Status = require("../model/Status");
 module.exports = {
     async store(req, res) {
         const { status } = req.body;
-
-        const statusExibe = await Status.create({
-            status,
-        });
-        return res.status(200).json(statusExibe);
+        try{
+            const statusExibe = await Status.create({
+                status,
+            });
+            return res.status(200).json(statusExibe);
+        }
+        catch(err){
+            res.status(400).send("Dados Invalidos");
+        }
     },
 
     async index(req, res) {
@@ -28,37 +32,27 @@ module.exports = {
         const dados = req.body;
         const { id } = req.params;
 
-        const user = await Status.update(dados, {
+        const exibeRes = await Status.update(dados, {
             where: { id: id }
         })
-            .then(dados => {
-                console.log(dados);
-                if (dados == 1) {
-                    return res.status(200).send("Dados atualizados");
-                } else if (dados == 0) {
-                    console.log(dados);
-                    return res.send("Erro ao editar");
-                }
-            })
-            .cath(err => {
-                console.log(err);
-                return res.send("Erro ao editar");
-            });
-        return user;
+
+        if(!exibeRes === 0){
+            res.status(200).json(exibeRes);
+        }else{
+            res.status(400).send("Usuário não existe");
+        }
+        
     },
 
     async delete(req, res) {
         const { id } = req.params;
-        const deleted = await Status.destroy({
+        const exibeRes = await Status.destroy({
             where: { id: id }
-        }).then(id => {
-            console.log(id);
-            if (id == 0) {
-                return res.send("Usuario não existe");
-            } else if (id == 1) {
-                return res.status(200).send("Usuario deletado com sucesso");
-            }
-        });
-        return deleted;
+        })
+        if(!exibeRes === 0){
+            res.status(200).json(exibeRes);
+        }else{
+            res.status(400).send("Usuário não existe");
+        }
     }
 };
