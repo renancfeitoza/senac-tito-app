@@ -6,6 +6,8 @@ const ProfessorController = require('./controller/ProfessorController');
 const CursoController =  require('./controller/CursoController');
 const AlunoController = require('./controller/AlunoController');
 const Curso_AlunoController = require('./controller/Curso_AlunoController');
+const loguinProfessorController = require('./controller/LoginProfessorController');
+const loginAlunoController = require('./controller/LoginAlunoController');
 const routes = express.Router();
 
 routes.get('/api', (req, res) => {
@@ -76,6 +78,12 @@ routes.get('/api/curso_aluno', Curso_AlunoController.index);
 routes.get('/api/curso_aluno/:id', Curso_AlunoController.show);
 routes.put('/api/curso_aluno/:id', Curso_AlunoController.update);
 routes.delete('/api/curso_aluno/:id', Curso_AlunoController.delete);
+
+// LOGIN DE PROFESSOR
+routes.post('/api/login_professor', loguinProfessorController.show);
+
+// LOGIN DE ALUNO
+routes.post('/api/login_aluno', loginAlunoController.show);
 
 
 
