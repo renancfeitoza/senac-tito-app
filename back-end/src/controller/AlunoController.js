@@ -1,9 +1,11 @@
 const Aluno = require('../model/Aluno');
-
+const CryptoJS = require('crypto-js');
+const { secretKey } = require("../config/tag");
 module.exports = {
     async store(req, res) {
-        const { nome, email, senha } = req.body;
-
+        const { nome, email } = req.body;
+        const senha = CryptoJS.AES.encrypt(req.body.senha, secretKey).toString();
+        
         try{
             const exibeRes = await Aluno.create({
                 nome,

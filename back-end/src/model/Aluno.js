@@ -1,6 +1,7 @@
 const Sequelize = require("sequelize");
 const sequelize = require("../config/database");
 
+
 const Aluno = sequelize.define("aluno", {
     nome: {
         type: Sequelize.STRING(100),
@@ -17,7 +18,7 @@ const Aluno = sequelize.define("aluno", {
         }
     },
     senha:{
-        type: Sequelize.STRING(20),
+        type: Sequelize.STRING(64),
         allowNull: false,
         validate: {
             notEmpty: true
@@ -26,7 +27,7 @@ const Aluno = sequelize.define("aluno", {
     
 });
 
-// Aluno.sync({ force: true });
+//Aluno.sync({ force: true });
 
 module.exports = Aluno;
 

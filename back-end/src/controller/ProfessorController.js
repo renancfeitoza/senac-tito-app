@@ -1,8 +1,10 @@
 const Professor = require('../model/Professor');
-
+const CryptoJS = require("crypto-js");
+const secretKey = require("../config/tag");
 module.exports = {
     async store(req, res) {
-        const { nome, email, senha, area, profile, admin } = req.body;
+        const { nome, email, area, profile, admin } = req.body;
+        const senha = CryptoJS.AES.encrypt(req.body.senha, secretKey).toString();
         try{
             const exibeRes = await Professor.create({
                 nome,

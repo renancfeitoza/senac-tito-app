@@ -1,7 +1,7 @@
 
 const Sequelize = require("sequelize");
 
-const sequelize = new Sequelize("genus", "root", "root", {
+const sequelize = new Sequelize("test", "root", "root", {
     host: "localhost",
     dialect: "mysql"
 });
@@ -11,7 +11,7 @@ sequelize
     .then(() => {
         console.log("Conectado com sucesso!");
     })
-    .catch(() => {
+    .catch((err) => {
         console.log("Falha ao se conectar: " + error);
     });
 

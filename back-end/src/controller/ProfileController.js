@@ -1,5 +1,6 @@
 const Profile = require("../model/Profile");
 
+
 module.exports = {
     async store(req, res) {
         const { nameProfile } = req.body;

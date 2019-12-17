@@ -11,7 +11,7 @@ const Profile = sequelize.define("profile", {
     }
 });
 
-// Profile.sync({ force: true });
+//Profile.sync({ force: true });
 
 module.exports = Profile;
 
