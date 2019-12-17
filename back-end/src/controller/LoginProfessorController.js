@@ -4,7 +4,8 @@ const { secretKey } = require("../config/tag");
 
 module.exports = {
     async show(req, res) {
-        const { email, senha } = req.body;
+        const { email } = req.body;
+        const senha = CryptoJS.AES.encrypt(req.body.senha, secretKey).toString();
         try{
             const exibeRes = await Professor.findOne({
                 where: {
