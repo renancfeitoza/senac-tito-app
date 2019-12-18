@@ -10,7 +10,7 @@ module.exports = {
             return res.status(200).json(statusExibe);
         }
         catch(err){
-            res.status(400).send("Dados Invalidos");
+            res.status(400).send(err.message);
         }
     },
 

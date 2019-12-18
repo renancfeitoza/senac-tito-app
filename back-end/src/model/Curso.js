@@ -6,14 +6,18 @@ const Curso = sequelize.define("curso", {
         type: Sequelize.STRING(100),
         allowNull: false,
         validate: {
-            notEmpty: true
+            notEmpty: {
+                msg: "Esse campo não pode ser vazio"
+            }
         }
     },
     professor: {
         type: Sequelize.INTEGER,
         allowNull: false,
         validate: {
-            notEmpty: true
+            notEmpty: {
+                msg: "Esse campo não pode ser vazio"
+            }
         },
         references: {
             model: "professors",
@@ -24,7 +28,9 @@ const Curso = sequelize.define("curso", {
         type: Sequelize.INTEGER,
         allowNull: false,
         validate: {
-            notEmpty: true
+            notEmpty: {
+                msg: "Esse campo não pode ser vazio"
+            }
         },
         references: {
             model: "status",

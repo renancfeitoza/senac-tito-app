@@ -1,10 +1,8 @@
 const Admin = require('../model/Admin');
-const CryptoJS = require("crypto-js");
-const secretKey = require("../config/tag");
+
 module.exports = {
     async store(req, res) {
-        const { nome, email, area, telefone, profile } = req.body;
-        const senha = CryptoJS.AES.encrypt(req.body.senha, secretKey).toString();
+        const { nome, email, senha, area, telefone, profile } = req.body;
         try{
 
         const exibeRes = await Admin.create({
@@ -19,7 +17,7 @@ module.exports = {
         res.status(200).json(exibeRes);
         }
         catch(err){
-            res.status(400).send('Dados Invalidos');
+            res.status(400).send(err.message);
         }
     },
     async index(req, res) {

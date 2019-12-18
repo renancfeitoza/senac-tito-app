@@ -15,7 +15,7 @@ module.exports = {
             res.status(201).json(exibeRes);
         }
         catch(err){
-            res.status(400).send("Dados invalidos");
+            res.status(400).send(err.message);
         }
     },
     async index(req, res) {

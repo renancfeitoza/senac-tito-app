@@ -6,7 +6,9 @@ const Status = sequelize.define("statu", {
         type: Sequelize.STRING(100),
         allowNull: false,
         validate: {
-            notEmpty: true
+            notEmpty: {
+                msg: "Esse campo não pode ser vazio"
+            }
         }
     }
 });

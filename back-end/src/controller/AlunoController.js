@@ -1,11 +1,9 @@
 const Aluno = require('../model/Aluno');
-const CryptoJS = require('crypto-js');
-const { secretKey } = require("../config/tag");
+
 module.exports = {
     async store(req, res) {
-        const { nome, email } = req.body;
-        const senha = CryptoJS.AES.encrypt(req.body.senha, secretKey).toString();
-        
+        const { nome, email, senha } = req.body;
+
         try{
             const exibeRes = await Aluno.create({
                 nome,
@@ -14,7 +12,7 @@ module.exports = {
             })
             res.status(201).json(exibeRes);
         }catch(err){
-            res.status(400).send("Dados invalidos");
+            res.status(400).send(err.message);
         }
 
     },

@@ -6,7 +6,9 @@ const Curso_aluno = sequelize.define("curso_aluno", {
         type: Sequelize.INTEGER,
         allowNull: false,
         validate: {
-            notEmpty: true
+            notEmpty: {
+                msg: "Esse campo não pode ser vazio"
+            }
         },
         references: {
             model: "cursos",
@@ -17,7 +19,9 @@ const Curso_aluno = sequelize.define("curso_aluno", {
         type: Sequelize.INTEGER,
         allowNull: false,
         validate: {
-            notEmpty: true
+            notEmpty: {
+                msg: "Esse campo não pode ser vazio"
+            }
         },
         references: {
             model: "alunos",
@@ -29,7 +33,9 @@ const Curso_aluno = sequelize.define("curso_aluno", {
         allowNull: false,
         unique:true,
         validate: {
-            notEmpty: true
+            notEmpty: {
+                msg: "Esse campo não pode ser vazio"
+            }
         }
     }
    

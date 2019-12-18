@@ -1,6 +1,5 @@
 const Profile = require("../model/Profile");
 
-
 module.exports = {
     async store(req, res) {
         const { nameProfile } = req.body;
@@ -11,7 +10,7 @@ module.exports = {
             return res.status(200).json(profile);
         }
         catch(err){
-            res.status(400).send("Dados Invalidos");
+            res.status(400).send(err.message);
         }
     },
 
