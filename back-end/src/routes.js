@@ -32,9 +32,9 @@ routes.get('/api', (req, res) => {
 // ROTAS DE PROFILE 
 routes.post('/api/profile', ProfileController.store);
 routes.get('/api/profile', ProfileController.index);
-routes.get('/api/profile/:id', ProfileController.show);
-routes.put('/api/profile/:id', ProfileController.update);
-routes.delete('/api/profile/:id', ProfileController.delete);
+routes.get('/api/profile_id', ProfileController.show);
+routes.put('/api/profile_edit', ProfileController.update);
+routes.delete('/api/profile_delete', ProfileController.delete);
 
 // ROTAS DE STATUS
 routes.post('/api/status', StatusProfile.store);
