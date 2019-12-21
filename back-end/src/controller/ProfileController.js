@@ -30,9 +30,15 @@ module.exports = {
 
     async index(req, res) {
         const display = await Profile.findAll();
-        console.log(display[1].dataValues);
-        let resposta = display.reduce((prev, next) => { let value = { nameProfile: next.nameProfile, token_profile: next.token_profile }; prev.push(value); return prev; }, [])
+        console.log(display);
+        if(display === []){
+        let resposta = display;
         return res.status(200).json(resposta);
+        }else{
+            let resposta = display.reduce((prev, next) => { let value = { nameProfile: next.nameProfile, token_profile: next.token_profile }; prev.push(value); return prev; }, [])
+            return res.status(200).json(resposta);
+        }
+       
     },
 
     async show(req, res) {
