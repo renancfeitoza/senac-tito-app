@@ -7,6 +7,7 @@
 body {
   background: rgb(255, 255, 255) !important ;
 }
+
 html {
   margin: 0;
   padding: 0;
@@ -21,6 +22,7 @@ html {
 .logo img {
   width: 170px;
 }
+
 /* Opções profile do menu */
 
 .options {
@@ -119,30 +121,77 @@ html {
   width: 30px;
   margin-right: 10px;
 }
+.keyboard-focused {
+  visibility: hidden;
+}
 .logout a,
 .logout a:hover {
   color: black;
   text-decoration: none;
 }
+/* Conteúdo */
+
+.inputProfile {
+  display: block;
+  width: 100%;
+  height: calc(2.25rem + 2px);
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  outline: none;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.about input {
+  height: 50px;
+}
+.container {
+  margin-top: 30px;
+}
+.container .btn-primary {
+  background: rgb(245, 138, 31);
+  border: none;
+}
+.container .btn-primary:hover {
+  background: #1c5594;
+}
+.avatar {
+  width: 150px;
+}
+#profileImage {
+  display: none;
+}
+#profileImage1 {
+  cursor: pointer;
+}
+.line1 {
+  display: none;
+}
+.text-center img {
+  opacity: 50%;
+}
+
 /* BARRA DE MENU */
 .menu {
   background: rgb(248, 248, 248);
   width: 350px;
   top: 0px;
   left: -350px;
-  height: 100%;
+  height: 100vh;
   position: absolute;
   transition: all 0.3s ease-in-out;
   z-index: 999;
 }
+
 .menu nav a {
   text-decoration: none;
 }
 .menu nav a:hover {
   color: black;
-}
-#check {
-  display: none;
 }
 
 label i {
@@ -156,13 +205,11 @@ label i {
   position: absolute;
   z-index: 1000;
 }
-
-#check:checked ~ .menu {
+.open {
   transform: translateX(350px);
 }
-#check:checked ~ label i {
-  transition: all 0.1s linear;
-  background: black;
+.overflowhidden {
+  overflow: hidden;
 }
 
 .link {
@@ -203,6 +250,9 @@ nav {
 }
 
 @media screen and (max-width: 425px) {
+  .line1 {
+    display: none;
+  }
   * {
     overflow: visible;
   }
@@ -213,7 +263,7 @@ nav {
     width: 100%;
     left: -425px;
   }
-  #check:checked ~ .menu {
+  .open {
     transform: translateX(425px);
   }
 }
@@ -222,6 +272,9 @@ nav {
     position: relative;
     top: -60px;
   }
+  .container {
+    text-align: center;
+  }
   .menu {
     width: 100%;
     left: -400px;
@@ -229,10 +282,12 @@ nav {
   .card {
     width: 75%;
   }
-  #check:checked ~ .menu {
+  .open {
     transform: translateX(400px);
   }
-
+  .line1 {
+    display: none;
+  }
   * {
     overflow: visible;
   }
