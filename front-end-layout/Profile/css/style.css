@@ -177,15 +177,22 @@ html {
 
 /* BARRA DE MENU */
 .menu {
-  background: rgb(248, 248, 248);
+  background: rgb(240, 240, 240);
   width: 350px;
   top: 0px;
   left: -350px;
-  height: 100vh;
+  height: 100%;
   position: absolute;
   transition: all 0.3s ease-in-out;
   z-index: 999;
 }
+.menu nav a {
+  text-decoration: none;
+}
+.menu nav a:hover {
+  color: black;
+}
+
 
 .menu nav a {
   text-decoration: none;

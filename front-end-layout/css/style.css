@@ -296,6 +296,7 @@ nav {
     display: block;
   }
   .menuMobile .menuMoptions .buttonShowLogin img {
+    padding-top: 6px; 
     visibility: visible;
     margin: 0 auto;
     width: 55%;
